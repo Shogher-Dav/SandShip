@@ -3,22 +3,22 @@ import java.util.Map;
 
 public class Warehouse {
 	
-	
-	private Map<Material, Integer> warehouse;
+
+	private Map<Material, Integer> warehouses;
 	
 	
 	// set warehouse an empty HashMap in constructor 
 	// set initial capacity to 50
 	public Warehouse() {
-		this.warehouse = new HashMap<>(50);
+		this.warehouses = new HashMap<>(50);
 	}
 
 	public Map<Material, Integer> getWarehouse() {
-		return warehouse;
+		return warehouses;
 	}
 
 	public void setWarehouse(Map<Material, Integer> warehouse) {
-		this.warehouse = warehouse;
+		this.warehouses = warehouse;
 	}
 	
 	// add some Materials to the warehouse if quantity more than max_capasity don't add a material
@@ -26,20 +26,21 @@ public class Warehouse {
 		if(material.getMax_capacity() < quantity) {
 			System.out.print("Can't add the material, the quantity is too much");
 		} else {
-			warehouse.put(material, quantity);
+			warehouses.put(material, quantity);
 		}
-		return warehouse;	
+		return warehouses;	
 	}
 	
 	// remove material from wareHouse
-	public Map<Material, Integer> removeMaterial(Material material) {
-		warehouse.remove(material);
-		return warehouse;
+	public Material removeMaterial(Material material) {
+		warehouses.remove(material);
+		return material;
 	}
 
 	@Override
 	public String toString() {
-		return "Warehouse [warehouse=" + warehouse + "]";
+		return "Warehouses --> "+ warehouses;
 	}
+
 
 }
